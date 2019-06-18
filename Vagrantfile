@@ -5,14 +5,12 @@ export LC_ALL=en_US.UTF-8
 sudo yum -y update
 sudo yum -y install wget
 sudo cp /vagrant/jenkins/nginx.repo /etc/yum.repo.d/nginx.repo
-sudo cp /vagrant/jenkins/default.conf /etc/sysconfig/default.conf
-sudo cp /vagrant/jenkins/jenkins /etc/sysconfig/jenkins
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
-#sudo wget -O /etc/yum.repos.d/nginx.repo https://raw.githubusercontent.com/zulus911/lectures/master/lecture2/nginx.repo
+sudo wget -O /etc/yum.repos.d/nginx.repo https://raw.githubusercontent.com/SBohomolov/vagrant-jenkins/master/nginx.repo
 sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
 sudo yum -y install jenkins nginx net-tools policycoreutils-python java mc htop vim
-#sudo wget -O /etc/sysconfig/jenkins https://raw.githubusercontent.com/zulus911/lectures/master/lecture2/jenkins
-#sudo wget -O /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/zulus911/lectures/master/lecture2/default.conf
+#sudo wget -O /etc/sysconfig/jenkins https://raw.githubusercontent.com/SBohomolov/vagrant-jenkins/master/jenkins
+#sudo wget -O /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/SBohomolov/vagrant-jenkins/master/default.conf
 sudo service jenkins start
 sudo service nginx start
 EOF
