@@ -53,7 +53,7 @@ JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true"
 # Port Jenkins is listening on.
 # Set to -1 to disable
 #
-JENKINS_PORT="8080"
+JENKINS_PORT="2222"
 
 ## Type:        string
 ## Default:     ""
