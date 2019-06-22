@@ -4,7 +4,7 @@ $script = <<-EOF
 export LC_ALL=en_US.UTF-8
 sudo yum -y update
 sudo yum -y install wget
-sudo cp /vagrant/jenkins/nginx.repo /etc/yum.repo.d/nginx.repo
+sudo cp /vagrant/jenkins/nginx.repo /etc/yum.repos.d/nginx.repo
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
 sudo wget -O /etc/yum.repos.d/nginx.repo https://raw.githubusercontent.com/SBohomolov/vagrant-jenkins/master/nginx.repo
 sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
@@ -15,6 +15,8 @@ sudo semanage port -a -t http_port_t -p tcp 2222
 sudo setsebool -P httpd_can_network_connect 1
 sudo service jenkins start
 sudo service nginx start
+sudo systemctl enable nginx
+sudo systemctl enable jenkins
 EOF
 
 Vagrant.configure("2") do |config|
